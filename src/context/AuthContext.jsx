@@ -7,24 +7,27 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
+
 import {
   collection,
   getDocs,
   query,
   where,
+  doc,
+  setDoc,
 } from "firebase/firestore";
 
 import { auth, db } from "../firebase";
 
 const AuthContext = createContext();
 
-const ADMIN_EMAIL = "dhanoshiganratnarajah2001@gmail.com";
-
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);   // { email, name, role }
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Listen to firebase auth state
+  // -------------------------------------------------
+  // Listen for Firebase Auth login/logout changes
+  // -------------------------------------------------
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, async (fbUser) => {
       if (!fbUser) {
@@ -33,7 +36,7 @@ export function AuthProvider({ children }) {
         return;
       }
 
-      // Check if this user is in admins collection
+      // Check if user is admin
       let role = "user";
       try {
         const q = query(
@@ -41,11 +44,9 @@ export function AuthProvider({ children }) {
           where("email", "==", fbUser.email)
         );
         const snap = await getDocs(q);
-        if (!snap.empty) {
-          role = "admin";
-        }
+        if (!snap.empty) role = "admin";
       } catch (err) {
-        console.error("Error checking admin role:", err);
+        console.error("Admin check error:", err);
       }
 
       setUser({
@@ -59,48 +60,70 @@ export function AuthProvider({ children }) {
     return () => unsub();
   }, []);
 
-  // ---------- USER SIGNUP ----------
+  // -------------------------------------------------
+  // USER SIGNUP (normal user account)
+  // -------------------------------------------------
   async function signupUser({ name, email, password }) {
     try {
       const cred = await createUserWithEmailAndPassword(auth, email, password);
 
-      // save display name in Firebase user
-      if (name) {
-        await updateProfile(cred.user, { displayName: name });
-      }
+      if (name) await updateProfile(cred.user, { displayName: name });
 
-      setUser({
-        email: cred.user.email,
-        name: name || "",
+      await setDoc(doc(db, "users", cred.user.uid), {
+        uid: cred.user.uid,
+        email,
+        name,
         role: "user",
+        createdAt: Date.now(),
       });
 
+      setUser({ email, name, role: "user" });
       return { ok: true };
     } catch (err) {
-      console.error("signupUser error:", err);
-      return {
-        ok: false,
-        code: err.code,
-        message: err.message,
-      };
+      return { ok: false, message: err.message };
     }
   }
 
-  // ---------- NORMAL USER LOGIN ----------
+  async function createAdmin({ name, email, password }) {
+  try {
+    // Create Firebase Auth user
+    const cred = await createUserWithEmailAndPassword(auth, email, password);
+
+    // Add display name
+    if (name) {
+      await updateProfile(cred.user, { displayName: name });
+    }
+
+    // Write to Firestore
+    await setDoc(doc(db, "admins", cred.user.uid), {
+      uid: cred.user.uid,
+      email,
+      name,
+      createdAt: Date.now(),
+    });
+
+    return { ok: true };
+
+  } catch (err) {
+    console.error("createAdmin error:", err);
+    return { ok: false, message: err.message };
+  }
+}
+
+  // -------------------------------------------------
+  // LOGIN USER
+  // -------------------------------------------------
   async function loginUser({ email, password }) {
     try {
       const cred = await signInWithEmailAndPassword(auth, email, password);
 
-      // check if this email is admin
       let role = "user";
       const q = query(
         collection(db, "admins"),
         where("email", "==", cred.user.email)
       );
       const snap = await getDocs(q);
-      if (!snap.empty) {
-        role = "admin";
-      }
+      if (!snap.empty) role = "admin";
 
       setUser({
         email: cred.user.email,
@@ -110,32 +133,17 @@ export function AuthProvider({ children }) {
 
       return { ok: true };
     } catch (err) {
-      console.error("loginUser error:", err);
-      return {
-        ok: false,
-        code: err.code,
-        message: err.message,
-      };
+      return { ok: false, message: err.message };
     }
   }
 
-  // ---------- ADMIN LOGIN ----------
+  // -------------------------------------------------
+  // LOGIN ADMIN
+  // -------------------------------------------------
   async function loginAdmin({ email, password }) {
     try {
-      // First, sign in with Firebase Auth
       const cred = await signInWithEmailAndPassword(auth, email, password);
 
-      // Extra safety: email must match main admin email
-      if (email !== ADMIN_EMAIL) {
-        // not our main admin → sign out again
-        await signOut(auth);
-        return {
-          ok: false,
-          message: "Not authorised as admin.",
-        };
-      }
-
-      // Check Firestore admins collection
       const q = query(
         collection(db, "admins"),
         where("email", "==", email)
@@ -144,13 +152,9 @@ export function AuthProvider({ children }) {
 
       if (snap.empty) {
         await signOut(auth);
-        return {
-          ok: false,
-          message: "Not authorised as admin.",
-        };
+        return { ok: false, message: "Not authorised as admin." };
       }
 
-      // success → mark as admin in state
       setUser({
         email: cred.user.email,
         name: cred.user.displayName || "Admin",
@@ -159,31 +163,26 @@ export function AuthProvider({ children }) {
 
       return { ok: true };
     } catch (err) {
-      console.error("loginAdmin error:", err);
-      return {
-        ok: false,
-        code: err.code,
-        message: err.message,
-      };
+      return { ok: false, message: err.message };
     }
   }
 
-  // ---------- LOGOUT ----------
   async function logout() {
     await signOut(auth);
     setUser(null);
   }
 
-  const value = {
-    user,
-    signupUser,
-    loginUser,
-    loginAdmin,
-    logout,
-  };
-
   return (
-    <AuthContext.Provider value={value}>
+    <AuthContext.Provider
+      value={{
+        user,
+        signupUser,
+        loginUser,
+        loginAdmin,
+        createAdmin,   // correct one
+        logout,
+      }}
+    >
       {!loading && children}
     </AuthContext.Provider>
   );
