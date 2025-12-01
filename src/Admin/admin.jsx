@@ -496,7 +496,7 @@ export default function Admin() {
                   <div className="add-actions-row">
                     <button
                       type="submit"
-                      className="btn-primary full"
+                      className="btn-primary save-btn"
                       disabled={saving}
                     >
                       {saving

@@ -11,7 +11,7 @@ export default function Home() {
           <div className="hero-text">
             
 
-            <h1>BrainFuel IT 🚀</h1>
+            <h1>BrainFuel IT </h1>
 
             <p>
               Practice in real-world interview questions by language, company and

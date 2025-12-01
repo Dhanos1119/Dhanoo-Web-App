@@ -184,3 +184,13 @@
 .modal-status[data-type="info"] {
   color: #fde047;
 }
+.btn-loading {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;         /* space between spinner + text */
+}
+
+.btn-loading-text {
+  font-size: 0.95rem;
+}

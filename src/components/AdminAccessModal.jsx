@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { toast } from "react-toastify";
+import ClipLoader from "react-spinners/ClipLoader";
 
 export default function AdminAccessModal({ onClose, onGoToAdmin }) {
   const { loginAdmin, createAdmin } = useAuth();
@@ -99,8 +100,16 @@ export default function AdminAccessModal({ onClose, onGoToAdmin }) {
           />
 
           <button className="btn-primary full" type="submit" disabled={loading}>
-            {loading ? "Please wait..." : "Login"}
-          </button>
+  {loading ? (
+    <span className="btn-loading">
+      <ClipLoader size={18} color="#000" />
+      <span className="btn-loading-text">Logging in…</span>
+    </span>
+  ) : (
+    "Login"
+  )}
+</button>
+
         </form>
 
         {/* GO TO ADMIN */}

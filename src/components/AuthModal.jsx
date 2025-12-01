@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import "../styles/modal.css";
 import { toast } from "react-toastify";
+import ClipLoader from "react-spinners/ClipLoader";
 
 export default function AuthModal({ mode, onClose }) {
   const { signupUser, loginUser } = useAuth();
@@ -120,17 +121,17 @@ export default function AuthModal({ mode, onClose }) {
             required
           />
 
-          <button
-            className="btn-primary full"
-            type="submit"
-            disabled={loading}
-          >
-            {loading
-              ? "Please wait..."
-              : isSignup
-              ? "Sign up"
-              : "Login"}
-          </button>
+          <button className="btn-primary full" type="submit" disabled={loading}>
+  {loading ? (
+    <span className="btn-loading">
+      <ClipLoader size={18} color="#000" />
+      <span className="btn-loading-text">Please wait…</span>
+    </span>
+  ) : (
+    "Login"
+  )}
+</button>
+
         </form>
 
         {/* SMALL ERROR TEXT UNDER BUTTON (same old UI) */}
