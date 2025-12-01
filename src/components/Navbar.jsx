@@ -102,7 +102,7 @@ export default function Navbar({ openModal }) {
         <AdminAccessModal
           onClose={() => setShowAdminModal(false)}
           onGoToAdmin={handleGoToAdmin}
-          onAddAdmin={handleAddAdmin}
+          //onAddAdmin={handleAddAdmin}
         />
       )}
     </>
