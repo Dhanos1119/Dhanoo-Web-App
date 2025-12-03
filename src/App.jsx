@@ -16,6 +16,10 @@ import ContactUs from "./pages/ContactUs.jsx";
 import Admin from "./Admin/admin";
 import Dashboard from "./pages/Dashboard";
 import { LanguageProvider } from "./context/LanguageContext";
+import HtmlCssPage from "./pages/HtmlCssPage";
+import ReactPage from "./pages/ReactPage";
+import CppPage from "./pages/CppPage";
+
 
 import AuthModal from "./components/AuthModal";
 import { AuthProvider, useAuth } from "./context/AuthContext";
@@ -79,6 +83,15 @@ function AppRoutes() {
           path="/javascript"
           element={<JavaScriptPage openSignup={setModalMode} />}
         />
+        <Route
+         path="/html"
+         element={<HtmlCssPage openSignup={setModalMode} />}/>
+        <Route
+          path="/react"
+          element={<ReactPage openSignup={setModalMode} />}/> 
+        <Route
+          path="/cpp"
+          element={<CppPage openSignup={setModalMode} />}/>
 
         <Route path="/contact" element={<ContactUs />} />
 

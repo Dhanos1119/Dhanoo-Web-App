@@ -17,9 +17,10 @@ const LANG_TABS = [
   { key: "python", label: "Python", userPath: "/python" },
   { key: "javascript", label: "JavaScript", userPath: "/javascript" },
   { key: "htmlcss", label: "HTML & CSS", userPath: "/html" },
-  { key: "react", label: "React", userPath: "/css" },
-  { key: "ccc", label: "C / C++", userPath: "/cpp" },
+  { key: "react", label: "React", userPath: "/react" },  // ✅
+  { key: "ccc", label: "C / C++", userPath: "/cpp" },    // already ok
 ];
+
 
 export default function Navbar({ openModal }) {
   const { user, logout } = useAuth();

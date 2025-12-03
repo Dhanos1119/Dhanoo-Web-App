@@ -1,0 +1,328 @@
+/* src/styles/htmlcss.css */
+
+.html-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #020617 0, #020617 50%, #020617 100%);
+  color: #e5e7eb;
+  padding-bottom: 3rem;
+}
+
+/* --- HERO --- */
+
+.html-hero {
+  position: relative;
+  min-height: 320px;
+  padding: 80px 8vw 60px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.html-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      to right,
+      rgba(15, 23, 42, 0.95),
+      rgba(15, 23, 42, 0.7),
+      rgba(15, 23, 42, 0.4)
+    ),
+    url("/htmlcss-bg.jpg"); /* /public/htmlcss-bg.jpg vechcha nalla irukkum */
+  background-size: cover;
+  background-position: center;
+  filter: blur(0.3px);
+  transform: scale(1.02);
+  z-index: -2;
+}
+
+.html-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.22), transparent 60%);
+  z-index: -1;
+}
+
+.html-hero-content {
+  max-width: 720px;
+}
+
+.html-pill {
+  display: inline-flex;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  background: rgba(15, 23, 42, 0.9);
+  color: #bfdbfe;
+  font-size: 0.8rem;
+}
+
+.html-hero h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.html-hero p {
+  max-width: 600px;
+  color: #cbd5f5;
+  font-size: 0.98rem;
+  margin-bottom: 18px;
+}
+
+.html-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.html-badge {
+  font-size: 0.75rem;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  color: #dbeafe;
+}
+
+/* --- MAIN CONTENT --- */
+
+.html-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 8vw 60px;
+}
+
+.html-section {
+  margin-bottom: 42px;
+}
+
+.html-section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.html-section-intro {
+  color: #9ca3af;
+  margin-bottom: 18px;
+  max-width: 720px;
+}
+
+/* grid cards */
+
+.html-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.html-card,
+.html-company-card {
+  background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.22), rgba(15, 23, 42, 0.95));
+  border-radius: 18px;
+  padding: 16px 18px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.7);
+}
+
+.html-card h3,
+.html-company-card h3 {
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
+.html-card ul,
+.html-company-card ul {
+  padding-left: 1.1rem;
+  font-size: 0.93rem;
+  color: #d1d5db;
+}
+
+/* CODE SECTION */
+
+.html-code-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.6fr);
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.html-code-card {
+  background: #020617;
+  border-radius: 18px;
+  border: 1px solid #1e293b;
+  overflow: hidden;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.9);
+}
+
+.html-code-header {
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  background: #020617;
+  border-bottom: 1px solid #111827;
+}
+
+.html-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  margin-right: 5px;
+}
+.html-dot.red {
+  background: #f97373;
+}
+.html-dot.yellow {
+  background: #facc15;
+}
+.html-dot.green {
+  background: #4ade80;
+}
+
+.html-file-name {
+  margin-left: 8px;
+  font-size: 0.78rem;
+  color: #9ca3af;
+}
+
+.html-code-block {
+  margin: 0;
+  padding: 12px 14px 14px;
+  font-family: "JetBrains Mono", "Consolas", monospace;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #e5e7eb;
+  background: radial-gradient(circle at top left, #020617, #020617);
+  overflow-x: auto;
+}
+
+.html-code-explain {
+  margin-top: 20px;
+  background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.18), rgba(15, 23, 42, 0.95));
+  border-radius: 18px;
+  padding: 14px 16px;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  box-shadow: 0 16px 40px rgba(59, 130, 246, 0.2);
+}
+
+.html-code-explain h3 {
+  margin-bottom: 8px;
+}
+
+.html-code-explain ol {
+  margin-left: 1.1rem;
+  color: #e5e7eb;
+  font-size: 0.95rem;
+}
+
+.html-tip {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #bfdbfe;
+}
+
+/* ROLES GRID */
+
+.html-role-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.html-role-card {
+  background: radial-gradient(circle at top left, rgba(15, 118, 110, 0.25), rgba(15, 23, 42, 0.95));
+  border-radius: 18px;
+  padding: 16px 18px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.7);
+}
+
+.html-role-card h3 {
+  margin-bottom: 6px;
+}
+
+.html-role-card p {
+  font-size: 0.9rem;
+  color: #e5e7eb;
+  margin-bottom: 8px;
+}
+
+.html-role-card ul {
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+  color: #d1d5db;
+}
+
+/* CTA */
+
+.html-cta-section {
+  margin-top: 20px;
+}
+
+.html-cta-box {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(59, 130, 246, 0.12));
+  border-radius: 24px;
+  padding: 22px 24px;
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 20px 50px rgba(34, 197, 94, 0.25);
+}
+
+.html-cta-box h3 {
+  margin-bottom: 4px;
+}
+
+.html-cta-box p {
+  color: #e5e7eb;
+}
+
+.html-cta-btn {
+  margin-top: 4px;
+  padding: 10px 26px;
+  font-size: 0.9rem;
+  width: fit-content;
+  border-radius: 10px;
+  align-self: flex-start;
+
+  background: #22c55e;
+  color: #ffffff;
+  border: none;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.html-cta-btn:hover {
+  background: #16a34a;
+  transform: translateY(-1px);
+}
+
+/* responsive */
+
+@media (max-width: 900px) {
+  .html-hero {
+    padding: 70px 6vw 50px;
+  }
+  .html-hero h1 {
+    font-size: 2rem;
+  }
+  .html-code-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .html-hero {
+    padding: 62px 18px 42px;
+  }
+  .html-main {
+    padding: 32px 18px 50px;
+  }
+  .html-badge-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

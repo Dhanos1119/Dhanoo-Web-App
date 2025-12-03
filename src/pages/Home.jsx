@@ -57,14 +57,16 @@ export default function Home() {
               <p>Layouts, flexbox and responsive design.</p>
             </Link>
 
-            <Link to="/css" className="subject-card css">
-              <h3>REACT</h3>
-              <p>USE FOR WEB DESIGN</p>
-            </Link>
-            <Link to="/css" className="subject-card CC">
-              <h3>C / C++</h3>
-              <p>BASIC LANGUAGE FOR ALL.</p>
-            </Link>
+            <Link to="/react" className="subject-card css">
+  <h3>REACT</h3>
+  <p>USE FOR WEB DESIGN</p>
+</Link>
+
+<Link to="/cpp" className="subject-card CC">
+  <h3>C / C++</h3>
+  <p>BASIC LANGUAGE FOR ALL.</p>
+</Link>
+
           </div>
         </section>
       </div>
