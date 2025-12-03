@@ -1,0 +1,9 @@
+@import "./java.css";
+
+.lang-pill.js {
+  border: 1px solid #eab308;
+  color: #fde047;
+}
+.lang-card {
+  background: radial-gradient(circle at top left, rgba(234, 179, 8, 0.15), #0f172a);
+}

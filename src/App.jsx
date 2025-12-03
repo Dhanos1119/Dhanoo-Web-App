@@ -10,6 +10,8 @@ import {
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import JavaPage from "./pages/JavaPage";
+import PythonPage from "./pages/PythonPage";        // 🔥 NEW
+import JavaScriptPage from "./pages/JavaScriptPage"; // 🔥 NEW
 import ContactUs from "./pages/ContactUs.jsx";
 import Admin from "./Admin/admin";
 import Dashboard from "./pages/Dashboard";
@@ -62,14 +64,22 @@ function AppRoutes() {
           }
         />
 
-        {/* Public pages */}
+        {/* Public subject pages */}
         <Route
           path="/java"
-          element={
-            // 🔥 pass setModalMode so JavaPage can open signup modal
-            <JavaPage openSignup={setModalMode} />
-          }
+          element={<JavaPage openSignup={setModalMode} />}
         />
+
+        <Route
+          path="/python"
+          element={<PythonPage openSignup={setModalMode} />}
+        />
+
+        <Route
+          path="/javascript"
+          element={<JavaScriptPage openSignup={setModalMode} />}
+        />
+
         <Route path="/contact" element={<ContactUs />} />
 
         {/* USER DASHBOARD
