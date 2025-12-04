@@ -1,4 +1,4 @@
-/* =============== PAGE BACKGROUND =============== */
+/* ===================== PAGE BACKGROUND ===================== */
 .java-page {
   min-height: 100vh;
   background: radial-gradient(
@@ -11,7 +11,7 @@
   padding-bottom: 3rem;
 }
 
-/* =============== HERO =============== */
+/* ===================== HERO ===================== */
 .java-hero {
   position: relative;
   min-height: 320px;
@@ -32,7 +32,7 @@
       rgba(15, 23, 42, 0.75),
       rgba(15, 23, 42, 0.45)
     ),
-    url("/java-bg.jpg"); /* optional image */
+    url("/java-bg.jpg");
   background-size: cover;
   background-position: center;
   filter: blur(0.4px);
@@ -45,7 +45,7 @@
   inset: 0;
   background: radial-gradient(
     circle at top left,
-    rgba(59, 130, 246, 0.25),
+    rgba(37, 99, 235, 0.22),
     transparent 60%
   );
   z-index: -1;
@@ -68,12 +68,7 @@
   margin-bottom: 18px;
 }
 
-.java-hero-buttons {
-  display: flex;
-  gap: 12px;
-}
-
-/* =============== MAIN WRAPPER =============== */
+/* ===================== MAIN ===================== */
 .java-main {
   max-width: 1400px;
   margin: 0 auto;
@@ -95,13 +90,10 @@
   max-width: 720px;
 }
 
-/* =============== GRID CARDS =============== */
+/* ===================== GRID CARDS ===================== */
 .java-grid {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(220px, 1fr)
-  );
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 16px;
 }
 
@@ -125,18 +117,18 @@
 }
 
 .java-card ul,
+.java-company-card p,
 .java-company-card ul {
   padding-left: 1.1rem;
   font-size: 0.93rem;
   color: #d1d5db;
 }
 
-/* =============== CODE BLOCK SECTION =============== */
+/* ===================== CODE SECTION ===================== */
 .java-code-layout {
   display: grid;
   grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
   gap: 20px;
-  align-items: flex-start;
 }
 
 .java-code-card {
@@ -161,24 +153,30 @@
   border-radius: 999px;
   margin-right: 5px;
 }
-.java-dot.red { background: #f97373; }
-.java-dot.yellow { background: #facc15; }
-.java-dot.green { background: #4ade80; }
+
+.java-dot.red {
+  background: #f97373;
+}
+.java-dot.yellow {
+  background: #facc15;
+}
+.java-dot.green {
+  background: #4ade80;
+}
 
 .java-file-name {
   margin-left: 8px;
-  font-size: 0.78rem;
   color: #9ca3af;
+  font-size: 0.78rem;
 }
 
 .java-code-block {
-  margin: 0;
-  padding: 12px 14px 14px;
-  font-family: "JetBrains Mono", "Consolas", monospace;
-  font-size: 0.82rem;
-  line-height: 1.5;
+  padding: 12px 14px;
+  font-family: "JetBrains Mono", monospace;
   color: #e5e7eb;
   background: #020617;
+  font-size: 0.82rem;
+  line-height: 1.5;
   overflow-x: auto;
 }
 
@@ -188,17 +186,24 @@
     rgba(59, 130, 246, 0.25),
     rgba(15, 23, 42, 0.96)
   );
+  border: 1px solid rgba(59, 130, 246, 0.6);
   border-radius: 18px;
   padding: 14px 16px;
-  border: 1px solid rgba(59, 130, 246, 0.6);
-  box-shadow: 0 16px 40px rgba(37, 99, 235, 0.2);
+  box-shadow: 0 16px 40px rgba(37, 99, 235, 0.3);
 }
 
 .java-code-explain h3 {
   margin-bottom: 8px;
+  font-size: 1.05rem;
 }
 
-/* =============== CTA BOX =============== */
+.java-code-explain ol {
+  margin-left: 1.1rem;
+  line-height: 1.5;
+  color: #e5e7eb;
+}
+
+/* ===================== CTA BOX ===================== */
 .java-cta-section {
   margin-top: 20px;
 }
@@ -217,129 +222,65 @@
   overflow: hidden;
 }
 
-.java-cta-box::before {
-  content: "";
-  position: absolute;
-  right: -70px;
-  top: -70px;
-  width: 230px;
-  height: 230px;
-  background: radial-gradient(
-    circle,
-    rgba(96, 165, 250, 0.25),
-    transparent 70%
-  );
-  opacity: 0.4;
-}
-
-.java-cta-box h2 {
-  font-size: 1.3rem;
-  font-weight: 700;
-}
-
-.java-cta-box p {
-  color: #e5e7eb;
-}
-
 .java-cta-btn {
-  margin-top: 8px;
-  padding: 10px 24px;
-  font-size: 0.9rem;
-  border-radius: 10px;
-  width: fit-content;
-}
-
-/* =============== YES / NO BUTTONS (ONLY FOR JAVA PAGE) =============== */
-
-.java-cta-box .btn-row {
-  display: flex;
-  gap: 10px;
   margin-top: 10px;
-}
-
-/* YES = white */
-.java-cta-box .btn-primary {
-  padding: 8px 22px;
-  border-radius: 10px;
+  padding: 10px 24px;
   background: #ffffff;
   color: #0f172a;
   font-weight: 600;
+  border-radius: 10px;
   border: 1px solid rgba(203, 213, 225, 0.4);
   transition: 0.2s ease;
 }
 
-.java-cta-box .btn-primary:hover {
+/* GREEN HOVER (Like Python) */
+.java-cta-btn:hover {
+  background: #05d539;
+  color: #0f172a;
+  border-color: rgba(15, 230, 94, 0.7);
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.4);
 }
 
-/* NO = dark */
-.java-cta-box .btn-outline {
-  padding: 8px 22px;
-  border-radius: 10px;
-  background: rgba(30, 41, 59, 0.95);
-  color: #e2e8f0;
-  font-weight: 600;
-  border: 1px solid rgba(71, 85, 105, 0.6);
-  transition: 0.2s ease;
+/* GREEN ACTIVE */
+.java-cta-btn:active {
+  background: #22c55e;
+  color: #ffffff;
+  border-color: rgba(15, 239, 97, 0.9);
+  transform: scale(0.97);
+  box-shadow: 0 0 12px rgba(10, 234, 92, 0.7);
 }
 
-.java-cta-box .btn-outline:hover {
-  background: rgba(51, 65, 85, 1);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(96, 165, 250, 0.25);
-}
-
-/* =============== QUESTIONS FLOW (DISTRICT / COMPANY / LIST) =============== */
-
+/* ===================== QUESTIONS FLOW ===================== */
 .java-questions-flow {
-  margin-top: 12px;
+  margin-top: 15px;
   padding-top: 10px;
-  border-top: 1px solid rgba(15, 23, 42, 0.5);
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
 .java-filter-row {
-  margin-top: 4px;
+  margin-bottom: 12px;
 }
 
-/* reused style names – same as python/cpp */
-
-.field-label {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #e5e7eb;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
+/* District dropdown (reuse Python style) */
 .district-select {
-  margin-top: 4px;
   padding: 8px 10px;
   border-radius: 10px;
-  border: 1px solid rgba(148, 163, 184, 0.6);
   background: rgba(15, 23, 42, 0.9);
   color: #e5e7eb;
-  font-size: 0.9rem;
+  border: 1px solid rgba(148,163,184,0.4);
   outline: none;
 }
-
-.district-select:focus {
-  border-color: rgba(59, 130, 246, 0.9);
-  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.6);
-}
-
-/* company chips */
 
 .company-pill-row {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 6px;
 }
+
 
 .company-pill {
   padding: 6px 14px;
@@ -356,40 +297,30 @@
   background: rgba(51, 65, 85, 0.9);
   border-color: rgba(148, 163, 184, 0.7);
   transform: translateY(-1px);
-  box-shadow: 0 0 12px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.3);
 }
-
 .company-pill--active {
   background: linear-gradient(
     135deg,
-    rgba(59, 130, 246, 0.9),
-    rgba(37, 99, 235, 0.95)
+    rgba(34, 197, 94, 0.9),
+    rgba(22, 163, 74, 0.95)
   );
   border-color: transparent;
-  color: #eff6ff;
+  color: #f0fdf4;
   transform: translateY(-2px);
-  box-shadow: 0 0 15px rgba(59, 130, 246, 0.7);
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.7);
 }
 
-/* questions list */
 
-.questions-section {
-  margin-top: 10px;
+.company-pill--active {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(59,130,246,0.7);
 }
 
-.questions-section h3 {
-  font-size: 1.1rem;
-  margin-bottom: 4px;
-}
-
-.company-meta {
-  font-size: 0.83rem;
-  color: #9ca3af;
-  margin-bottom: 10px;
-}
-
+/* ===================== QUESTIONS ===================== */
 .question-card {
-  margin-top: 10px;
   padding: 10px 12px;
   border-radius: 14px;
   background: radial-gradient(
@@ -397,41 +328,95 @@
     rgba(37, 99, 235, 0.3),
     rgba(15, 23, 42, 0.98)
   );
-  border: 1px solid rgba(148, 163, 184, 0.4);
+  border: 1px solid rgba(148,163,184,0.4);
+  margin-top: 10px;
 }
 
 .q-label,
 .a-label {
+  color: #e5e7eb;
   font-size: 0.9rem;
-  color: #dee1e5;
 }
 
 .q-label {
   margin-bottom: 4px;
 }
 
-/* =============== RESPONSIVE =============== */
+/* ===================== RESPONSIVE ===================== */
 @media (max-width: 900px) {
-  .java-hero {
-    padding: 70px 6vw 50px;
-  }
-  .java-hero h1 {
-    font-size: 2rem;
-  }
   .java-code-layout {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 640px) {
-  .java-hero {
-    padding: 62px 18px 42px;
-  }
   .java-main {
     padding: 32px 18px 50px;
   }
-  .java-hero-buttons {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+}
+/* ===== CTA & YES BUTTON – base (WHITE) ===== */
+.java-cta-btn {
+  background: #ffffff;
+  color: #0f172a;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 10px;
+  border: 1px solid rgba(203, 213, 225, 0.4);
+  transition: 0.2s ease;
+}
+
+/* YES button */
+.java-btn-primary {
+  padding: 8px 22px;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #0f172a;
+  font-weight: 600;
+  border: 1px solid rgba(203, 213, 225, 0.4);
+  transition: 0.2s ease;
+}
+
+/* NO button */
+.java-btn-dark {
+  padding: 8px 22px;
+  border-radius: 10px;
+  background: rgba(30, 41, 59, 0.95);
+  color: #e2e8f0;
+  font-weight: 600;
+  border: 1px solid rgba(71, 85, 105, 0.6);
+  transition: 0.2s ease;
+}
+
+/* HOVER → LIGHT GREEN (same as Python) */
+.java-cta-btn:hover,
+.java-btn-primary:hover,
+.java-btn-dark:hover {
+  background: #05d539;
+  color: #0f172a;
+  border-color: rgba(15, 230, 94, 0.7);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.4);
+}
+
+/* ACTIVE (click hold) → DARK GREEN */
+.java-cta-btn:active,
+.java-btn-primary:active,
+.java-btn-dark:active {
+  background: #22c55e;
+  color: #ffffff;
+  border-color: rgba(15, 239, 97, 0.9);
+  transform: scale(0.97);
+  box-shadow: 0 0 12px rgba(10, 234, 92, 0.7);
+}
+/* 🔥 Java page – active company pill = GREEN */
+.java-page .company-pill--active {
+  background: linear-gradient(
+    135deg,
+    rgba(34, 197, 94, 0.95),
+    rgba(22, 163, 74, 0.98)
+  ) !important;
+  border-color: transparent !important;
+  color: #f0fdf4 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.8) !important;
 }

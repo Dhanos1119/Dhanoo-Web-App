@@ -1,19 +1,12 @@
-/* src/styles/react.css */
-
+/* ===================== PAGE BASE ===================== */
 .react-page {
   min-height: 100vh;
-  background: radial-gradient(
-      circle at top left,
-      #020617 0,
-      #020617 55%,
-      #020617 100%
-    );
+  background: radial-gradient(circle at top left, #020617 0, #020617 55%, #020617 100%);
   color: #e5e7eb;
   padding-bottom: 3rem;
 }
 
-/* HERO */
-
+/* ===================== HERO ===================== */
 .react-hero {
   position: relative;
   min-height: 320px;
@@ -34,7 +27,7 @@
       rgba(15, 23, 42, 0.75),
       rgba(15, 23, 42, 0.45)
     ),
-    url("/react-bg.jpg"); /* optional bg */
+    url("/react-bg.jpg");
   background-size: cover;
   background-position: center;
   filter: blur(0.4px);
@@ -45,11 +38,7 @@
 .react-hero-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    circle at top left,
-    rgba(59, 130, 246, 0.22),
-    transparent 60%
-  );
+  background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.22), transparent 60%);
   z-index: -1;
 }
 
@@ -70,6 +59,7 @@
   margin-bottom: 18px;
 }
 
+/* ===================== BADGES ===================== */
 .react-badge-row {
   display: flex;
   flex-wrap: wrap;
@@ -85,8 +75,7 @@
   font-size: 0.78rem;
 }
 
-/* MAIN */
-
+/* ===================== MAIN WRAPPER ===================== */
 .react-main {
   max-width: 1400px;
   margin: 0 auto;
@@ -108,50 +97,37 @@
   max-width: 720px;
 }
 
-/* GRID */
-
+/* ===================== GRID CARDS ===================== */
 .react-grid {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(220px, 1fr)
-  );
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 16px;
 }
 
-.react-card,
-.react-role-card {
-  background: radial-gradient(
-    circle at top left,
-    rgba(37, 99, 235, 0.28),
-    rgba(15, 23, 42, 0.96)
-  );
+.react-card {
+  background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.28), rgba(15, 23, 42, 0.96));
   border-radius: 18px;
   padding: 16px 18px;
   border: 1px solid rgba(148, 163, 184, 0.25);
   box-shadow: 0 16px 40px rgba(15, 23, 42, 0.7);
 }
 
-.react-card h3,
-.react-role-card h3 {
+.react-card h3 {
   margin-bottom: 8px;
   font-size: 1.05rem;
 }
 
-.react-card ul,
-.react-role-card ul {
+.react-card ul {
   padding-left: 1.1rem;
   font-size: 0.93rem;
   color: #d1d5db;
 }
 
-/* CODE SECTION */
-
+/* ===================== CODE BOX ===================== */
 .react-code-layout {
   display: grid;
-  grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
   gap: 20px;
-  align-items: flex-start;
 }
 
 .react-code-card {
@@ -195,69 +171,29 @@
 .react-code-block {
   margin: 0;
   padding: 12px 14px 14px;
-  font-family: "JetBrains Mono", "Consolas", monospace;
+  font-family: "JetBrains Mono", Consolas, monospace;
   font-size: 0.82rem;
   line-height: 1.5;
   color: #e5e7eb;
-  background: radial-gradient(
-    circle at top left,
-    #020617,
-    #020617
-  );
+  background: #020617;
   overflow-x: auto;
 }
 
 .react-code-explain {
-  background: radial-gradient(
-    circle at top left,
-    rgba(59, 130, 246, 0.25),
-    rgba(15, 23, 42, 0.96)
-  );
+  background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.25), rgba(15, 23, 42, 0.96));
   border-radius: 18px;
   padding: 14px 16px;
   border: 1px solid rgba(59, 130, 246, 0.6);
   box-shadow: 0 16px 40px rgba(37, 99, 235, 0.2);
 }
 
-.react-code-explain h3 {
-  margin-bottom: 8px;
-}
-
-.react-code-explain ol {
-  margin-left: 1.1rem;
-  color: #e5e7eb;
-  font-size: 0.95rem;
-}
-
-.react-tip {
-  margin-top: 8px;
-  font-size: 0.9rem;
-  color: #bfdbfe;
-}
-
-/* ROLES GRID */
-
-.react-role-grid {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(220px, 1fr)
-  );
-  gap: 16px;
-}
-
-/* CTA */
-
+/* ===================== CTA BLOCK ===================== */
 .react-cta-section {
   margin-top: 20px;
 }
 
 .react-cta-box {
-  background: radial-gradient(
-    circle at top left,
-    rgba(15, 23, 42, 0.98),
-    #020617 60%
-  );
+  background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.98), #020617 60%);
   border-radius: 24px;
   padding: 22px 24px 26px;
   border: 1px solid rgba(59, 130, 246, 0.6);
@@ -273,54 +209,133 @@
   top: -70px;
   width: 230px;
   height: 230px;
-  background: radial-gradient(
-    circle,
-    rgba(96, 165, 250, 0.25),
-    transparent 70%
-  );
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.25), transparent 70%);
   opacity: 0.4;
 }
 
-.react-cta-box h3 {
-  font-size: 1.3rem;
-  font-weight: 700;
-}
-
-.react-cta-box p {
-  color: #e5e7eb;
-}
-
+/* CTA button — start white → hover green → press dark green */
 .react-cta-btn {
-  margin-top: 8px;
+  background: #ffffff;
+  color: #0f172a;
   padding: 10px 24px;
-  font-size: 0.9rem;
   border-radius: 10px;
-  width: fit-content;
+  border: 1px solid rgba(203, 213, 225, 0.4);
+  font-weight: 600;
+  transition: 0.2s ease;
 }
 
-/* RESPONSIVE */
-
-@media (max-width: 900px) {
-  .react-hero {
-    padding: 70px 6vw 50px;
-  }
-  .react-hero h1 {
-    font-size: 2rem;
-  }
-  .react-code-layout {
-    grid-template-columns: 1fr;
-  }
+/* hover → light green */
+.react-cta-btn:hover {
+  background: #05d539;
+  color: #0f172a;
+  border-color: rgba(15, 230, 94, 0.7);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.4);
 }
 
-@media (max-width: 640px) {
-  .react-hero {
-    padding: 62px 18px 42px;
-  }
-  .react-main {
-    padding: 32px 18px 50px;
-  }
-  .react-badge-row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+/* active → dark green */
+.react-cta-btn:active {
+  background: #22c55e;
+  color: #ffffff;
+  border-color: rgba(34, 197, 94, 0.9);
+  transform: scale(0.97);
+  box-shadow: 0 0 12px rgba(10, 234, 92, 0.7);
+}
+
+/* ===================== YES / NO BUTTONS ===================== */
+.react-btn-primary,
+.react-btn-dark {
+  padding: 8px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+/* white button */
+.react-btn-primary {
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid rgba(203, 213, 225, 0.4);
+}
+
+.react-btn-primary:hover {
+  background: #05d539;
+  color: #0f172a;
+  border-color: rgba(15, 230, 94, 0.7);
+  transform: translateY(-2px);
+}
+
+/* dark button */
+.react-btn-dark {
+  background: rgba(30, 41, 59, 0.95);
+  color: #e2e8f0;
+  border: 1px solid rgba(71, 85, 105, 0.6);
+}
+
+.react-btn-dark:hover {
+  background: #05d539;
+  color: #0f172a;
+  border-color: rgba(15, 230, 94, 0.7);
+  transform: translateY(-2px);
+}
+
+/* active state → dark green */
+.react-btn-primary:active,
+.react-btn-dark:active {
+  background: #22c55e !important;
+  color: #ffffff !important;
+  border-color: rgba(34, 197, 94, 0.9) !important;
+  transform: scale(0.97);
+}
+
+/* ===================== COMPANY PILLS ===================== */
+.company-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.company-pill {
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: rgba(30, 41, 59, 0.85);
+  border: 1px solid rgba(71, 85, 105, 0.6);
+  color: #e2e8f0;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: 0.18s ease;
+}
+
+.company-pill:hover {
+  transform: translateY(-2px);
+  border-color: rgba(148, 163, 184, 0.7);
+}
+
+/* ACTIVE → GREEN (same as python/js) */
+.react-page .company-pill--active {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.95), rgba(22, 163, 74, 0.98));
+  color: #f0fdf4;
+  border-color: transparent;
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.7);
+  transform: translateY(-2px);
+}
+
+/* ===================== QUESTIONS LIST ===================== */
+.question-card {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.3), rgba(15, 23, 42, 0.98));
+  border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.q-label,
+.a-label {
+  color: #e5e7eb;
+  font-size: 0.9rem;
+}
+
+.q-label {
+  margin-bottom: 4px;
 }

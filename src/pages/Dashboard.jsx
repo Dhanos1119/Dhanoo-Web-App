@@ -48,15 +48,9 @@ export default function Dashboard() {
   }
 
   return (
-    <div
-      className="dashboard-page"
-      style={{
-        backgroundImage: `url(${bgImg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
+   <div className="dashboard-page">
+
+    
       <div className="dashboard-overlay" />
 
       <div className="dashboard-inner">
@@ -66,7 +60,7 @@ export default function Dashboard() {
 
         {/* New heading: "If any doubts ask me" */}
         <div className="doubt-heading">
-          <h1>If you have any doubts, ask me </h1>
+          <h1>If you have any Questions, ask me </h1>
           
         </div>
 

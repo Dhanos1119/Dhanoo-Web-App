@@ -350,7 +350,7 @@ public class StudentInput {
                   interview questions, district filters and admin-curated content.
                 </p>
                 <button
-                  className="btn-primary java-cta-btn"
+                  className="java-cta-btn"
                   onClick={() => openSignup && openSignup("signup")}
                 >
                   Learn more &amp; sign up
@@ -367,19 +367,20 @@ public class StudentInput {
                   companies. Continue?
                 </p>
                 <div className="btn-row">
-                  <button
-                    className="btn-primary java-cta-btn"
-                    onClick={() => setStarted(true)}
-                  >
-                    Yes
-                  </button>
-                  <button
-                    className="btn-outline java-cta-btn"
-                    onClick={handleNo}
-                  >
-                    No
-                  </button>
-                </div>
+  <button
+    className="java-btn-primary"
+    onClick={() => setStarted(true)}
+  >
+    Yes
+  </button>
+  <button
+    className="java-btn-dark"
+    onClick={handleNo}
+  >
+    No
+  </button>
+</div>
+
               </>
             )}
 

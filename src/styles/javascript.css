@@ -119,11 +119,10 @@
   gap: 16px;
 }
 
-.javascript-card,
-.javascript-role-card {
+.javascript-card {
   background: radial-gradient(
     circle at top left,
-    rgba(59, 130, 246, 0.28),
+    rgba(37, 99, 235, 0.28),
     rgba(15, 23, 42, 0.96)
   );
   border-radius: 18px;
@@ -132,14 +131,12 @@
   box-shadow: 0 16px 40px rgba(15, 23, 42, 0.7);
 }
 
-.javascript-card h3,
-.javascript-role-card h3 {
+.javascript-card h3 {
   margin-bottom: 8px;
   font-size: 1.05rem;
 }
 
-.javascript-card ul,
-.javascript-role-card ul {
+.javascript-card ul {
   padding-left: 1.1rem;
   font-size: 0.93rem;
   color: #d1d5db;
@@ -227,17 +224,6 @@
   margin-left: 1.1rem;
   color: #e5e7eb;
   font-size: 0.95rem;
-}
-
-/* ROLES GRID */
-
-.javascript-role-grid {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(220px, 1fr)
-  );
-  gap: 16px;
 }
 
 /* CTA (before questions) */
@@ -338,7 +324,7 @@
   margin-top: 4px;
 }
 
-/* company chips (same as python) */
+/* company chips */
 
 .company-pill-row {
   display: flex;
@@ -383,8 +369,8 @@
   margin-top: 10px;
 }
 
-.questions-section h3,
-.questions-section h4 {
+.questions-section h4,
+.questions-section h3 {
   font-size: 1.05rem;
   margin-bottom: 4px;
 }
@@ -443,7 +429,52 @@
     align-items: flex-start;
   }
 }
+
 /* --- PRIMARY YES BUTTON (WHITE) --- */
+.javascript-btn-primary {
+  padding: 8px 22px;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #0f172a;
+  font-weight: 600;
+  border: 1px solid rgba(203,213,225,0.4);
+  transition: 0.2s ease;
+}
+
+.javascript-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.2);
+}
+
+/* --- DARK NO BUTTON --- */
+.javascript-btn-dark {
+  padding: 8px 22px;
+  border-radius: 10px;
+  background: rgba(30, 41, 59, 0.95);
+  color: #e2e8f0;
+  font-weight: 600;
+  border: 1px solid rgba(71, 85, 105, 0.6);
+  transition: 0.2s ease;
+}
+
+.javascript-btn-dark:hover {
+  background: rgba(51, 65, 85, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(96, 165, 250, 0.25);
+}
+
+/* ===== CTA & YES BUTTON – common base style ===== */
+.javascript-cta-btn {
+  background: #ffffff;
+  color: #0f172a;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 10px;
+  border: 1px solid rgba(203, 213, 225, 0.4);
+  transition: 0.2s ease;
+}
+
+/* YES button – duplicate ok (same style) */
 .javascript-btn-primary {
   padding: 8px 22px;
   border-radius: 10px;
@@ -454,24 +485,67 @@
   transition: 0.2s ease;
 }
 
-.javascript-btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.18);
-}
-
-/* --- DARK NO BUTTON --- */
+/* NO button – base style */
 .javascript-btn-dark {
   padding: 8px 22px;
   border-radius: 10px;
-  background: rgba(30, 41, 59, 0.96);
+  background: rgba(30, 41, 59, 0.95);
   color: #e2e8f0;
   font-weight: 600;
-  border: 1px solid rgba(71, 85, 105, 0.7);
+  border: 1px solid rgba(71, 85, 105, 0.6);
   transition: 0.2s ease;
 }
 
+/* ===== HOVER (lift) ===== */
+.javascript-cta-btn:hover,
+.javascript-btn-primary:hover,
 .javascript-btn-dark:hover {
-  background: rgba(51, 65, 85, 1);
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 14px rgba(148, 163, 184, 0.25);
+}
+
+/* ===== ACTIVE STATE → GREEN WHEN PRESSED ===== */
+.javascript-cta-btn:active,
+.javascript-btn-primary:active,
+.javascript-btn-dark:active {
+  background: #22c55e;              /* 🟢 green */
+  color: #ffffff;
+  border-color: rgba(34, 197, 94, 0.9);
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.7);
+  transform: scale(0.96);
+}
+
+/* ===================== HOVER → LIGHT GREEN ===================== */
+.javascript-cta-btn:hover,
+.javascript-btn-primary:hover,
+.javascript-btn-dark:hover {
+  background: #05d539 !important;     /* light green */
+  color: #0f172a !important;
+  border-color: rgba(15, 230, 94, 0.7) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.4);
+}
+
+/* ===================== ACTIVE → DARK GREEN ===================== */
+.javascript-cta-btn:active,
+.javascript-btn-primary:active,
+.javascript-btn-dark:active {
+  background: #22c55e !important;     /* dark green */
+  color: #ffffff !important;
+  border-color: rgba(15, 239, 97, 0.9) !important;
+  transform: scale(0.97);
+  box-shadow: 0 0 12px rgba(10, 234, 92, 0.7);
+}
+
+/* 🔥 JavaScript page – Active company pill = GREEN */
+.javascript-page .company-pill--active {
+  background: linear-gradient(
+    135deg,
+    rgba(34, 197, 94, 0.95),
+    rgba(22, 163, 74, 0.98)
+  ) !important;
+  border-color: transparent !important;
+  color: #f0fdf4 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.8) !important;
 }
