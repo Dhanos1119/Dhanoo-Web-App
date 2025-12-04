@@ -19,6 +19,7 @@ import { LanguageProvider } from "./context/LanguageContext";
 import HtmlCssPage from "./pages/HtmlCssPage";
 import ReactPage from "./pages/ReactPage";
 import CppPage from "./pages/CppPage";
+import { ThemeProvider } from "./context/ThemeContext";
 
 
 import AuthModal from "./components/AuthModal";
@@ -155,6 +156,7 @@ function AppRoutes() {
    =========================== */
 export default function App() {
   return (
+     <ThemeProvider>
     <AuthProvider>
       <LanguageProvider>
         <BrowserRouter>
@@ -162,5 +164,6 @@ export default function App() {
         </BrowserRouter>
       </LanguageProvider>
     </AuthProvider>
+    </ThemeProvider>
   );
 }

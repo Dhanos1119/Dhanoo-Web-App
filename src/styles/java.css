@@ -1,14 +1,14 @@
 /* ===================== PAGE BACKGROUND ===================== */
 .java-page {
   min-height: 100vh;
+  padding-bottom: 3rem;
   background: radial-gradient(
       circle at top left,
-      #020617 0,
-      #020617 55%,
-      #020617 100%
+      var(--bg) 0%,
+      var(--bg) 55%,
+      var(--bg) 100%
     );
-  color: #e5e7eb;
-  padding-bottom: 3rem;
+  color: var(--text);
 }
 
 /* ===================== HERO ===================== */
@@ -222,35 +222,6 @@
   overflow: hidden;
 }
 
-.java-cta-btn {
-  margin-top: 10px;
-  padding: 10px 24px;
-  background: #ffffff;
-  color: #0f172a;
-  font-weight: 600;
-  border-radius: 10px;
-  border: 1px solid rgba(203, 213, 225, 0.4);
-  transition: 0.2s ease;
-}
-
-/* GREEN HOVER (Like Python) */
-.java-cta-btn:hover {
-  background: #05d539;
-  color: #0f172a;
-  border-color: rgba(15, 230, 94, 0.7);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.4);
-}
-
-/* GREEN ACTIVE */
-.java-cta-btn:active {
-  background: #22c55e;
-  color: #ffffff;
-  border-color: rgba(15, 239, 97, 0.9);
-  transform: scale(0.97);
-  box-shadow: 0 0 12px rgba(10, 234, 92, 0.7);
-}
-
 /* ===================== QUESTIONS FLOW ===================== */
 .java-questions-flow {
   margin-top: 15px;
@@ -265,13 +236,13 @@
   margin-bottom: 12px;
 }
 
-/* District dropdown (reuse Python style) */
+/* District dropdown */
 .district-select {
   padding: 8px 10px;
   border-radius: 10px;
   background: rgba(15, 23, 42, 0.9);
   color: #e5e7eb;
-  border: 1px solid rgba(148,163,184,0.4);
+  border: 1px solid rgba(148, 163, 184, 0.4);
   outline: none;
 }
 
@@ -280,7 +251,6 @@
   flex-wrap: wrap;
   gap: 8px;
 }
-
 
 .company-pill {
   padding: 6px 14px;
@@ -299,24 +269,18 @@
   transform: translateY(-1px);
   box-shadow: 0 0 12px rgba(34, 197, 94, 0.3);
 }
+
+/* default active – GREEN for Java */
 .company-pill--active {
   background: linear-gradient(
     135deg,
-    rgba(34, 197, 94, 0.9),
-    rgba(22, 163, 74, 0.95)
+    rgba(34, 197, 94, 0.95),
+    rgba(22, 163, 74, 0.98)
   );
   border-color: transparent;
   color: #f0fdf4;
   transform: translateY(-2px);
-  box-shadow: 0 0 15px rgba(34, 197, 94, 0.7);
-}
-
-
-.company-pill--active {
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
-  border-color: transparent;
-  color: #fff;
-  box-shadow: 0 0 15px rgba(59,130,246,0.7);
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.8);
 }
 
 /* ===================== QUESTIONS ===================== */
@@ -328,7 +292,7 @@
     rgba(37, 99, 235, 0.3),
     rgba(15, 23, 42, 0.98)
   );
-  border: 1px solid rgba(148,163,184,0.4);
+  border: 1px solid rgba(148, 163, 184, 0.4);
   margin-top: 10px;
 }
 
@@ -354,7 +318,8 @@
     padding: 32px 18px 50px;
   }
 }
-/* ===== CTA & YES BUTTON – base (WHITE) ===== */
+
+/* ===== CTA & BUTTONS – base (WHITE) ===== */
 .java-cta-btn {
   background: #ffffff;
   color: #0f172a;
@@ -387,7 +352,7 @@
   transition: 0.2s ease;
 }
 
-/* HOVER → LIGHT GREEN (same as Python) */
+/* HOVER → LIGHT GREEN */
 .java-cta-btn:hover,
 .java-btn-primary:hover,
 .java-btn-dark:hover {
@@ -398,7 +363,7 @@
   box-shadow: 0 4px 14px rgba(34, 197, 94, 0.4);
 }
 
-/* ACTIVE (click hold) → DARK GREEN */
+/* ACTIVE → DARK GREEN */
 .java-cta-btn:active,
 .java-btn-primary:active,
 .java-btn-dark:active {
@@ -408,15 +373,80 @@
   transform: scale(0.97);
   box-shadow: 0 0 12px rgba(10, 234, 92, 0.7);
 }
-/* 🔥 Java page – active company pill = GREEN */
-.java-page .company-pill--active {
-  background: linear-gradient(
-    135deg,
-    rgba(34, 197, 94, 0.95),
-    rgba(22, 163, 74, 0.98)
-  ) !important;
-  border-color: transparent !important;
-  color: #f0fdf4 !important;
-  transform: translateY(-2px);
-  box-shadow: 0 0 15px rgba(34, 197, 94, 0.8) !important;
+
+/* ===================== LIGHT THEME OVERRIDES ===================== */
+
+:root[data-theme="light"] .java-page {
+  background: radial-gradient(
+    circle at top left,
+    #f9fafb 0%,
+    #f9fafb 55%,
+    #e5e7eb 100%
+  );
+  color: #0f172a;
+}
+
+/* hero on white bg */
+:root[data-theme="light"] .java-hero::before {
+  background-image: linear-gradient(
+      to right,
+      rgba(249, 250, 251, 0.98),
+      rgba(249, 250, 251, 0.9),
+      rgba(249, 250, 251, 0.8)
+    ),
+    url("/java-bg.jpg");
+}
+
+:root[data-theme="light"] .java-hero p,
+:root[data-theme="light"] .java-section-intro {
+  color: #4b5563;
+}
+
+/* cards & explain boxes → lighter bluish gradient */
+:root[data-theme="light"] .java-card,
+:root[data-theme="light"] .java-company-card,
+:root[data-theme="light"] .java-code-explain,
+:root[data-theme="light"] .question-card {
+  background: radial-gradient(
+    circle at top left,
+    #e5edff 0%,
+    #ffffff 60%
+  );
+  border-color: rgba(148, 163, 184, 0.6);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+  color: #111827;
+}
+
+:root[data-theme="light"] .java-card ul,
+:root[data-theme="light"] .java-company-card p,
+:root[data-theme="light"] .java-company-card ul,
+:root[data-theme="light"] .java-code-explain ol {
+  color: #1f2937;
+}
+
+/* q / a labels on light cards */
+:root[data-theme="light"] .q-label,
+:root[data-theme="light"] .a-label {
+  color: #111827;
+}
+
+/* CTA box: keep dark, but force light text */
+:root[data-theme="light"] .java-cta-box {
+  background: radial-gradient(
+    circle at top left,
+    #020617 0%,
+    #020617 60%
+  );
+  color: #e5e7eb;
+}
+
+/* district select + pills – keep dark style even in light mode */
+:root[data-theme="light"] .district-select {
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+:root[data-theme="light"] .company-pill {
+  background: rgba(30, 41, 59, 0.95);
+  color: #e5e7eb;
 }

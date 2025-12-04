@@ -1,16 +1,24 @@
 import { Link } from "react-router-dom";
 import "../styles/home.css";
-
+import { useTheme } from "../context/ThemeContext";
+import "./themeButton.css";
 
 export default function Home() {
+  const { theme, toggleTheme } = useTheme();
+
   return (
     <div className="home-page">
+      {/* 🌙 THEME TOGGLE – only in Home page */}
+      <button className="theme-toggle-btn" onClick={toggleTheme}>
+        <div className="icon-circle">
+          <div className="inner-half" />
+        </div>
+      </button>
+
       <div className="home-inner">
         {/* HERO */}
         <section className="hero">
           <div className="hero-text">
-            
-
             <h1>BrainFuel IT </h1>
 
             <p>
@@ -19,7 +27,6 @@ export default function Home() {
             </p>
 
             <div className="hero-stats">
-             
               <div className="stat">
                 <span className="stat-number">20+</span>
                 <span className="stat-label">Sri Lankan companies</span>
@@ -58,15 +65,14 @@ export default function Home() {
             </Link>
 
             <Link to="/react" className="subject-card css">
-  <h3>REACT</h3>
-  <p>USE FOR WEB DESIGN</p>
-</Link>
+              <h3>REACT</h3>
+              <p>USE FOR WEB DESIGN</p>
+            </Link>
 
-<Link to="/cpp" className="subject-card CC">
-  <h3>C / C++</h3>
-  <p>BASIC LANGUAGE FOR ALL.</p>
-</Link>
-
+            <Link to="/cpp" className="subject-card CC">
+              <h3>C / C++</h3>
+              <p>BASIC LANGUAGE FOR ALL.</p>
+            </Link>
           </div>
         </section>
       </div>
