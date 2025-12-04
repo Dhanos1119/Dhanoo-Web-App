@@ -1,18 +1,17 @@
-/* src/styles/javascript.css */
-
+/* ===================== PAGE BACKGROUND ===================== */
 .javascript-page {
   min-height: 100vh;
+  padding-bottom: 3rem;
   background: radial-gradient(
       circle at top left,
-      #020617 0,
-      #020617 55%,
-      #020617 100%
+      var(--bg) 0%,
+      var(--bg) 55%,
+      var(--bg) 100%
     );
-  color: #e5e7eb;
-  padding-bottom: 3rem;
+  color: var(--text);
 }
 
-/* HERO */
+/* ===================== HERO ===================== */
 
 .javascript-hero {
   position: relative;
@@ -34,7 +33,7 @@
       rgba(15, 23, 42, 0.75),
       rgba(15, 23, 42, 0.45)
     ),
-    url("/javascript-bg.jpg"); /* optional bg image */
+    url("/javascript-bg.jpg");
   background-size: cover;
   background-position: center;
   filter: blur(0.4px);
@@ -85,7 +84,7 @@
   font-size: 0.78rem;
 }
 
-/* MAIN */
+/* ===================== MAIN ===================== */
 
 .javascript-main {
   max-width: 1400px;
@@ -108,14 +107,11 @@
   max-width: 720px;
 }
 
-/* GRID CARDS */
+/* ===================== GRID CARDS ===================== */
 
 .javascript-grid {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(220px, 1fr)
-  );
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 16px;
 }
 
@@ -142,7 +138,7 @@
   color: #d1d5db;
 }
 
-/* CODE SECTION */
+/* ===================== CODE SECTION ===================== */
 
 .javascript-code-layout {
   display: grid;
@@ -196,11 +192,7 @@
   font-size: 0.82rem;
   line-height: 1.5;
   color: #e5e7eb;
-  background: radial-gradient(
-    circle at top left,
-    #020617,
-    #020617
-  );
+  background: radial-gradient(circle at top left, #020617, #020617);
   overflow-x: auto;
 }
 
@@ -226,7 +218,7 @@
   font-size: 0.95rem;
 }
 
-/* CTA (before questions) */
+/* ===================== CTA (before questions) ===================== */
 
 .javascript-cta-section {
   margin-top: 20px;
@@ -278,7 +270,7 @@
   width: fit-content;
 }
 
-/* ==== SHARED CONTROLS (Yes/No + filters + questions) ==== */
+/* ===================== SHARED CONTROLS ===================== */
 
 .btn-row {
   display: flex;
@@ -354,13 +346,13 @@
 .company-pill--active {
   background: linear-gradient(
     135deg,
-    rgba(59, 130, 246, 0.9),
-    rgba(37, 99, 235, 0.95)
+    rgba(34, 197, 94, 0.95),
+    rgba(22, 163, 74, 0.98)
   );
   border-color: transparent;
-  color: #eff6ff;
+  color: #f0fdf4;
   transform: translateY(-2px);
-  box-shadow: 0 0 15px rgba(59, 130, 246, 0.7);
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.8);
 }
 
 /* questions list */
@@ -403,7 +395,61 @@
   margin-bottom: 4px;
 }
 
-/* RESPONSIVE */
+/* ===================== BUTTONS ===================== */
+
+.javascript-cta-btn {
+  background: #ffffff;
+  color: #0f172a;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 10px;
+  border: 1px solid rgba(203, 213, 225, 0.4);
+  transition: 0.2s ease;
+}
+
+.javascript-btn-primary {
+  padding: 8px 22px;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #0f172a;
+  font-weight: 600;
+  border: 1px solid rgba(203, 213, 225, 0.4);
+  transition: 0.2s ease;
+}
+
+.javascript-btn-dark {
+  padding: 8px 22px;
+  border-radius: 10px;
+  background: rgba(30, 41, 59, 0.95);
+  color: #e2e8f0;
+  font-weight: 600;
+  border: 1px solid rgba(71, 85, 105, 0.6);
+  transition: 0.2s ease;
+}
+
+/* hover / active → green */
+
+.javascript-cta-btn:hover,
+.javascript-btn-primary:hover,
+.javascript-btn-dark:hover {
+  background: #05d539;
+  color: #0f172a;
+  border-color: rgba(15, 230, 94, 0.7);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.4);
+}
+
+.javascript-cta-btn:active,
+.javascript-btn-primary:active,
+.javascript-btn-dark:active {
+  background: #22c55e;
+  color: #ffffff;
+  border-color: rgba(15, 239, 97, 0.9);
+  transform: scale(0.97);
+  box-shadow: 0 0 12px rgba(10, 234, 92, 0.7);
+}
+
+/* ===================== RESPONSIVE ===================== */
 
 @media (max-width: 900px) {
   .javascript-hero {
@@ -430,122 +476,91 @@
   }
 }
 
-/* --- PRIMARY YES BUTTON (WHITE) --- */
-.javascript-btn-primary {
-  padding: 8px 22px;
-  border-radius: 10px;
-  background: #ffffff;
+/* ===================== LIGHT THEME OVERRIDES ===================== */
+
+:root[data-theme="light"] .javascript-page {
+  background: radial-gradient(
+    circle at top left,
+    #f9fafb 0%,
+    #f9fafb 55%,
+    #e5e7eb 100%
+  );
   color: #0f172a;
-  font-weight: 600;
-  border: 1px solid rgba(203,213,225,0.4);
-  transition: 0.2s ease;
 }
 
-.javascript-btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.2);
+/* hero lighter */
+:root[data-theme="light"] .javascript-hero::before {
+  background-image: linear-gradient(
+      to right,
+      rgba(249, 250, 251, 0.98),
+      rgba(249, 250, 251, 0.9),
+      rgba(249, 250, 251, 0.8)
+    ),
+    url("/javascript-bg.jpg");
 }
 
-/* --- DARK NO BUTTON --- */
-.javascript-btn-dark {
-  padding: 8px 22px;
-  border-radius: 10px;
+:root[data-theme="light"] .javascript-hero p,
+:root[data-theme="light"] .javascript-section-intro {
+  color: #4b5563;
+}
+
+/* cards & explain → light bluish */
+:root[data-theme="light"] .javascript-card,
+:root[data-theme="light"] .javascript-code-explain,
+:root[data-theme="light"] .question-card {
+  background: radial-gradient(
+    circle at top left,
+    #e5edff 0%,
+    #ffffff 60%
+  );
+  border-color: rgba(148, 163, 184, 0.6);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+  color: #111827;
+}
+
+:root[data-theme="light"] .javascript-card ul,
+:root[data-theme="light"] .javascript-code-explain ol {
+  color: #1f2937;
+}
+
+/* q/a labels */
+:root[data-theme="light"] .q-label,
+:root[data-theme="light"] .a-label {
+  color: #111827;
+}
+
+/* keep code card dark in both themes */
+:root[data-theme="light"] .javascript-code-card {
+  background: #020617;
+}
+
+:root[data-theme="light"] .javascript-code-block {
+  background: #020617;
+  color: #e5e7eb;
+}
+
+/* CTA box – still dark, text light */
+:root[data-theme="light"] .javascript-cta-box {
+  background: radial-gradient(
+    circle at top left,
+    #020617 0%,
+    #020617 60%
+  );
+  color: #e5e7eb;
+}
+
+/* badge + filters keep dark look */
+:root[data-theme="light"] .javascript-badge {
+  background: #0f172a;
+  color: #bfdbfe;
+}
+
+:root[data-theme="light"] .javascript-page .district-select {
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+:root[data-theme="light"] .javascript-page .company-pill {
   background: rgba(30, 41, 59, 0.95);
-  color: #e2e8f0;
-  font-weight: 600;
-  border: 1px solid rgba(71, 85, 105, 0.6);
-  transition: 0.2s ease;
-}
-
-.javascript-btn-dark:hover {
-  background: rgba(51, 65, 85, 1);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(96, 165, 250, 0.25);
-}
-
-/* ===== CTA & YES BUTTON – common base style ===== */
-.javascript-cta-btn {
-  background: #ffffff;
-  color: #0f172a;
-  font-weight: 600;
-  padding: 10px 24px;
-  border-radius: 10px;
-  border: 1px solid rgba(203, 213, 225, 0.4);
-  transition: 0.2s ease;
-}
-
-/* YES button – duplicate ok (same style) */
-.javascript-btn-primary {
-  padding: 8px 22px;
-  border-radius: 10px;
-  background: #ffffff;
-  color: #0f172a;
-  font-weight: 600;
-  border: 1px solid rgba(203, 213, 225, 0.4);
-  transition: 0.2s ease;
-}
-
-/* NO button – base style */
-.javascript-btn-dark {
-  padding: 8px 22px;
-  border-radius: 10px;
-  background: rgba(30, 41, 59, 0.95);
-  color: #e2e8f0;
-  font-weight: 600;
-  border: 1px solid rgba(71, 85, 105, 0.6);
-  transition: 0.2s ease;
-}
-
-/* ===== HOVER (lift) ===== */
-.javascript-cta-btn:hover,
-.javascript-btn-primary:hover,
-.javascript-btn-dark:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(148, 163, 184, 0.25);
-}
-
-/* ===== ACTIVE STATE → GREEN WHEN PRESSED ===== */
-.javascript-cta-btn:active,
-.javascript-btn-primary:active,
-.javascript-btn-dark:active {
-  background: #22c55e;              /* 🟢 green */
-  color: #ffffff;
-  border-color: rgba(34, 197, 94, 0.9);
-  box-shadow: 0 0 12px rgba(34, 197, 94, 0.7);
-  transform: scale(0.96);
-}
-
-/* ===================== HOVER → LIGHT GREEN ===================== */
-.javascript-cta-btn:hover,
-.javascript-btn-primary:hover,
-.javascript-btn-dark:hover {
-  background: #05d539 !important;     /* light green */
-  color: #0f172a !important;
-  border-color: rgba(15, 230, 94, 0.7) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.4);
-}
-
-/* ===================== ACTIVE → DARK GREEN ===================== */
-.javascript-cta-btn:active,
-.javascript-btn-primary:active,
-.javascript-btn-dark:active {
-  background: #22c55e !important;     /* dark green */
-  color: #ffffff !important;
-  border-color: rgba(15, 239, 97, 0.9) !important;
-  transform: scale(0.97);
-  box-shadow: 0 0 12px rgba(10, 234, 92, 0.7);
-}
-
-/* 🔥 JavaScript page – Active company pill = GREEN */
-.javascript-page .company-pill--active {
-  background: linear-gradient(
-    135deg,
-    rgba(34, 197, 94, 0.95),
-    rgba(22, 163, 74, 0.98)
-  ) !important;
-  border-color: transparent !important;
-  color: #f0fdf4 !important;
-  transform: translateY(-2px);
-  box-shadow: 0 0 15px rgba(34, 197, 94, 0.8) !important;
+  color: #e5e7eb;
 }

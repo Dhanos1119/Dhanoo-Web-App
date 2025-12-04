@@ -2,8 +2,13 @@
 .admin-page {
   min-height: 100vh;
   padding: 32px 48px 40px;
-  background: radial-gradient(circle at top, #0f172a 0%, #020617 55%, #020617 100%);
-  color: #e5e7eb;
+  background: radial-gradient(
+    circle at top,
+    var(--bg) 0%,
+    var(--bg) 55%,
+    var(--bg) 100%
+  );
+  color: var(--text);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -26,7 +31,6 @@
   color: #e8f9f3;
   font-family: "Poppins", "Inter", sans-serif;
 }
-
 
 .admin-subtitle {
   margin-top: 6px;
@@ -144,17 +148,20 @@
   padding: 1rem;
   border-radius: 12px;
   margin: 0.4rem 0;
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.04);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
   color: #fff;
 }
 
 .company-btn--active {
-  border: 1px solid rgba(0,200,120,0.6);
-  box-shadow: 0 10px 24px rgba(0,200,120,0.04);
-  background: linear-gradient(180deg, rgba(0,200,120,0.03), rgba(0,200,120,0.01));
+  border: 1px solid rgba(0, 200, 120, 0.6);
+  box-shadow: 0 10px 24px rgba(0, 200, 120, 0.04);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 200, 120, 0.03),
+    rgba(0, 200, 120, 0.01)
+  );
 }
-
 
 .company-btn:hover {
   border-color: rgba(148, 163, 184, 0.7);
@@ -163,7 +170,11 @@
 
 .company-btn--active {
   border-color: #22c55e;
-  background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.18), #020617);
+  background: radial-gradient(
+    circle at top left,
+    rgba(34, 197, 94, 0.18),
+    #020617
+  );
   box-shadow: 0 0 20px rgba(34, 197, 94, 0.45);
 }
 
@@ -182,7 +193,11 @@
 
 /* ===== MAIN PANEL ===== */
 .admin-main {
-  background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.12), rgba(15, 23, 42, 0.98));
+  background: radial-gradient(
+    circle at top left,
+    rgba(34, 197, 94, 0.12),
+    rgba(15, 23, 42, 0.98)
+  );
   border-radius: 18px;
   padding: 18px 20px 20px;
   border: 1px solid rgba(148, 163, 184, 0.25);
@@ -328,8 +343,7 @@
   gap: 6px;
 }
 
-
-/* reuse your existing .btn-primary but tweak a bit */
+/* main save button inside form */
 .btn-primary.full {
   width: 60%;
   padding: 10px 14px;
@@ -355,9 +369,11 @@
   transform: translateY(-1px);
   box-shadow: 0 16px 28px rgba(34, 197, 94, 0.65);
 }
+
+/* separate SAVE button (if used) */
 .save-btn {
-  width: 25%;              /* 👈 button size */
-  margin: 20 ;          /* center */
+  width: 25%;
+  margin: 20px;
   padding: 10px 14px;
   border-radius: 999px;
   background: #0ab727;
@@ -374,17 +390,18 @@
   transform: translateY(-2px);
   box-shadow: 0 16px 28px rgba(34, 197, 94, 0.65);
 }
+
 /* Improve company name visibility */
 .company-name {
-  font-size: 1rem !important;       /* Increase size */
-  font-weight: 600 !important;      /* Make bold */
-  color: #f3f4f6 !important;        /* Light color */
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  color: #f3f4f6 !important;
 }
 
 /* Improve company address visibility */
 .company-address {
   font-size: 0.82rem !important;
-  color: #cbd5e1 !important;        /* Brighter muted color */
+  color: #cbd5e1 !important;
 }
 
 /* Optional: glow on hover for better UX */
@@ -395,15 +412,20 @@
 .company-btn:hover .company-address {
   color: #dbeafe !important;
 }
-/* district buttons */
+
+/* district buttons – fancy version */
 .district-btn {
   display: inline-block;
   padding: 0.5rem 0.9rem;
   margin: 0.25rem 0.35rem;
-  border-radius: 999px; /* pill */
-  border: 1px solid rgba(255,255,255,0.06);
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  color: rgba(255,255,255,0.85);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.01)
+  );
+  color: rgba(255, 255, 255, 0.85);
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.08s ease, box-shadow 0.12s ease, background 0.12s;
@@ -414,15 +436,21 @@
 .district-btn:hover,
 .district-btn:focus {
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
 }
 
 /* active style (selected) */
 .district-btn--active {
-  background: linear-gradient(180deg, rgba(0,200,120,0.12), rgba(0,160,100,0.06));
+  background: linear-gradient(
+    180deg,
+    rgba(0, 200, 120, 0.12),
+    rgba(0, 160, 100, 0.06)
+  );
   color: #dfffe8;
-  border: 1px solid rgba(0,200,120,0.6);
-  box-shadow: 0 8px 30px rgba(0,200,120,0.08), inset 0 1px 0 rgba(255,255,255,0.02);
+  border: 1px solid rgba(0, 200, 120, 0.6);
+  box-shadow:
+    0 8px 30px rgba(0, 200, 120, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
 }
 
 /* small screen wrap */
@@ -431,15 +459,16 @@
   flex-wrap: wrap;
   gap: 0.2rem;
 }
-/* quick dropdown style (add to admin.css) */
+
+/* quick dropdown style */
 /* District dropdown */
 .district-select {
   width: 100%;
   padding: 0.55rem 0.75rem;
   border-radius: 10px;
-  background: rgba(255,255,255,0.05); /* light dark */
-  color: #ffffff; /* text always visible */
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   font-weight: 700;
   outline: none;
   cursor: pointer;
@@ -447,8 +476,8 @@
 
 /* when opened highlight */
 .district-select:focus {
-  border-color: rgba(0,200,130,0.6);
-  box-shadow: 0 0 0 3px rgba(0,200,130,0.15);
+  border-color: rgba(0, 200, 130, 0.6);
+  box-shadow: 0 0 0 3px rgba(0, 200, 130, 0.15);
 }
 
 /* Options (for browsers that support styling) */
@@ -458,3 +487,131 @@
   font-weight: 600;
 }
 
+/* ===================== LIGHT THEME OVERRIDES ===================== */
+
+:root[data-theme="light"] .admin-page {
+  background: radial-gradient(
+    circle at top,
+    #f9fafb 0%,
+    #f9fafb 55%,
+    #e5e7eb 100%
+  );
+  color: #020617;
+}
+
+:root[data-theme="light"] .admin-header h1 {
+  color: #020617;
+}
+
+:root[data-theme="light"] .admin-subtitle {
+  color: #4b5563;
+}
+
+/* sidebar + main panels become light cards */
+:root[data-theme="light"] .admin-sidebar {
+  background: #ffffff;
+  border-color: rgba(148, 163, 184, 0.5);
+  box-shadow:
+    0 16px 30px rgba(15, 23, 42, 0.12),
+    0 0 0 1px rgba(148, 163, 184, 0.3);
+}
+
+:root[data-theme="light"] .admin-main {
+  background: radial-gradient(
+    circle at top left,
+    #e5edff 0%,
+    #ffffff 65%
+  );
+  border-color: rgba(148, 163, 184, 0.5);
+  box-shadow:
+    0 16px 30px rgba(15, 23, 42, 0.12),
+    0 0 0 1px rgba(148, 163, 184, 0.3);
+}
+
+/* lang tabs on light */
+:root[data-theme="light"] .lang-tab {
+  background: #f3f4f6;
+  color: #111827;
+  border-color: rgba(148, 163, 184, 0.7);
+}
+
+:root[data-theme="light"] .lang-tab--active {
+  background: #22c55e;
+  color: #022c22;
+}
+
+/* company buttons on light */
+:root[data-theme="light"] .company-btn {
+  background: #ffffff;
+  border-color: rgba(148, 163, 184, 0.5);
+  color: #111827;
+}
+
+:root[data-theme="light"] .company-btn--active {
+  background: radial-gradient(
+    circle at top left,
+    rgba(34, 197, 94, 0.18),
+    #f9fafb
+  );
+  border-color: #22c55e;
+}
+
+/* improve company text in light */
+:root[data-theme="light"] .company-name {
+  color: #111827 !important;
+}
+
+:root[data-theme="light"] .company-address {
+  color: #4b5563 !important;
+}
+
+/* question cards on light */
+:root[data-theme="light"] .question-item {
+  background: radial-gradient(
+    circle at top left,
+    #e5edff 0%,
+    #ffffff 70%
+  );
+  border-color: rgba(148, 163, 184, 0.7);
+}
+
+:root[data-theme="light"] .q-label,
+:root[data-theme="light"] .a-label {
+  color: #111827;
+}
+
+/* form textareas on light */
+:root[data-theme="light"] .add-question-form textarea {
+  background: #ffffff;
+  color: #111827;
+  border-color: rgba(148, 163, 184, 0.7);
+}
+
+/* district pills on light */
+:root[data-theme="light"] .district-btn {
+  background: #f3f4f6;
+  color: #111827;
+  border-color: rgba(148, 163, 184, 0.7);
+}
+
+:root[data-theme="light"] .district-btn--active {
+  background: linear-gradient(
+    180deg,
+    rgba(34, 197, 94, 0.16),
+    rgba(22, 163, 74, 0.08)
+  );
+  color: #064e3b;
+  border-color: rgba(34, 197, 94, 0.9);
+}
+
+/* dropdown on light */
+:root[data-theme="light"] .district-select {
+  background: #ffffff;
+  color: #111827;
+  border-color: rgba(148, 163, 184, 0.8);
+}
+
+:root[data-theme="light"] .district-select option {
+  background-color: #ffffff;
+  color: #111827;
+}

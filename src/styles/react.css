@@ -1,9 +1,14 @@
 /* ===================== PAGE BASE ===================== */
 .react-page {
   min-height: 100vh;
-  background: radial-gradient(circle at top left, #020617 0, #020617 55%, #020617 100%);
-  color: #e5e7eb;
   padding-bottom: 3rem;
+  background: radial-gradient(
+      circle at top left,
+      var(--bg) 0%,
+      var(--bg) 55%,
+      var(--bg) 100%
+    );
+  color: var(--text);
 }
 
 /* ===================== HERO ===================== */
@@ -38,7 +43,11 @@
 .react-hero-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.22), transparent 60%);
+  background: radial-gradient(
+    circle at top left,
+    rgba(59, 130, 246, 0.22),
+    transparent 60%
+  );
   z-index: -1;
 }
 
@@ -105,7 +114,11 @@
 }
 
 .react-card {
-  background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.28), rgba(15, 23, 42, 0.96));
+  background: radial-gradient(
+    circle at top left,
+    rgba(59, 130, 246, 0.28),
+    rgba(15, 23, 42, 0.96)
+  );
   border-radius: 18px;
   padding: 16px 18px;
   border: 1px solid rgba(148, 163, 184, 0.25);
@@ -180,7 +193,11 @@
 }
 
 .react-code-explain {
-  background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.25), rgba(15, 23, 42, 0.96));
+  background: radial-gradient(
+    circle at top left,
+    rgba(59, 130, 246, 0.25),
+    rgba(15, 23, 42, 0.96)
+  );
   border-radius: 18px;
   padding: 14px 16px;
   border: 1px solid rgba(59, 130, 246, 0.6);
@@ -193,7 +210,11 @@
 }
 
 .react-cta-box {
-  background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.98), #020617 60%);
+  background: radial-gradient(
+    circle at top left,
+    rgba(15, 23, 42, 0.98),
+    #020617 60%
+  );
   border-radius: 24px;
   padding: 22px 24px 26px;
   border: 1px solid rgba(59, 130, 246, 0.6);
@@ -209,7 +230,11 @@
   top: -70px;
   width: 230px;
   height: 230px;
-  background: radial-gradient(circle, rgba(96, 165, 250, 0.25), transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(96, 165, 250, 0.25),
+    transparent 70%
+  );
   opacity: 0.4;
 }
 
@@ -224,7 +249,6 @@
   transition: 0.2s ease;
 }
 
-/* hover → light green */
 .react-cta-btn:hover {
   background: #05d539;
   color: #0f172a;
@@ -233,7 +257,6 @@
   box-shadow: 0 4px 14px rgba(34, 197, 94, 0.4);
 }
 
-/* active → dark green */
 .react-cta-btn:active {
   background: #22c55e;
   color: #ffffff;
@@ -279,7 +302,6 @@
   transform: translateY(-2px);
 }
 
-/* active state → dark green */
 .react-btn-primary:active,
 .react-btn-dark:active {
   background: #22c55e !important;
@@ -312,9 +334,13 @@
   border-color: rgba(148, 163, 184, 0.7);
 }
 
-/* ACTIVE → GREEN (same as python/js) */
+/* ACTIVE → GREEN */
 .react-page .company-pill--active {
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.95), rgba(22, 163, 74, 0.98));
+  background: linear-gradient(
+    135deg,
+    rgba(34, 197, 94, 0.95),
+    rgba(22, 163, 74, 0.98)
+  );
   color: #f0fdf4;
   border-color: transparent;
   box-shadow: 0 0 15px rgba(34, 197, 94, 0.7);
@@ -326,7 +352,11 @@
   margin-top: 10px;
   padding: 10px 12px;
   border-radius: 14px;
-  background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.3), rgba(15, 23, 42, 0.98));
+  background: radial-gradient(
+    circle at top left,
+    rgba(37, 99, 235, 0.3),
+    rgba(15, 23, 42, 0.98)
+  );
   border: 1px solid rgba(148, 163, 184, 0.4);
 }
 
@@ -338,4 +368,113 @@
 
 .q-label {
   margin-bottom: 4px;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 900px) {
+  .react-hero {
+    padding: 70px 6vw 50px;
+  }
+  .react-hero h1 {
+    font-size: 2rem;
+  }
+  .react-code-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .react-hero {
+    padding: 62px 18px 42px;
+  }
+  .react-main {
+    padding: 32px 18px 50px;
+  }
+  .react-badge-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ===================== LIGHT THEME OVERRIDES ===================== */
+
+:root[data-theme="light"] .react-page {
+  background: radial-gradient(
+    circle at top left,
+    #f9fafb 0%,
+    #f9fafb 55%,
+    #e5e7eb 100%
+  );
+  color: #0f172a;
+}
+
+/* hero lighter */
+:root[data-theme="light"] .react-hero::before {
+  background-image: linear-gradient(
+      to right,
+      rgba(249, 250, 251, 0.98),
+      rgba(249, 250, 251, 0.9),
+      rgba(249, 250, 251, 0.8)
+    ),
+    url("/react-bg.jpg");
+}
+
+:root[data-theme="light"] .react-hero p,
+:root[data-theme="light"] .react-section-intro {
+  color: #4b5563;
+}
+
+/* cards & explain → light bluish */
+:root[data-theme="light"] .react-card,
+:root[data-theme="light"] .react-code-explain,
+:root[data-theme="light"] .question-card {
+  background: radial-gradient(
+    circle at top left,
+    #e5edff 0%,
+    #ffffff 60%
+  );
+  border-color: rgba(148, 163, 184, 0.6);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+  color: #111827;
+}
+
+:root[data-theme="light"] .react-card ul {
+  color: #1f2937;
+}
+
+/* q/a labels darker */
+:root[data-theme="light"] .q-label,
+:root[data-theme="light"] .a-label {
+  color: #111827;
+}
+
+/* keep code box dark in both themes */
+:root[data-theme="light"] .react-code-card {
+  background: #020617;
+}
+
+:root[data-theme="light"] .react-code-block {
+  background: #020617;
+  color: #e5e7eb;
+}
+
+/* CTA box – dark even in light mode */
+:root[data-theme="light"] .react-cta-box {
+  background: radial-gradient(
+    circle at top left,
+    #020617 0%,
+    #020617 60%
+  );
+  color: #e5e7eb;
+}
+
+/* badges + chips keep dark style */
+:root[data-theme="light"] .react-badge {
+  background: #0f172a;
+  color: #bfdbfe;
+}
+
+:root[data-theme="light"] .react-page .company-pill {
+  background: rgba(30, 41, 59, 0.95);
+  color: #e2e8f0;
 }
